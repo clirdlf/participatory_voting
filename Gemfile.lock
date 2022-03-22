@@ -175,13 +175,18 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+<<<<<<< HEAD
     mini_portile2 (2.6.1)
     minitest (5.15.0)
+=======
+    mini_portile2 (2.8.0)
+    minitest (5.14.4)
+>>>>>>> 74157cb8f81504635ccb29ca70a3040d7488fef2
     msgpack (1.4.2)
     newrelic_rpm (8.2.0)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.13.3)
+      mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.21.0)
@@ -189,7 +194,7 @@ GEM
       ast (~> 2.4.1)
     pg (1.2.3)
     public_suffix (4.0.6)
-    puma (5.5.2)
+    puma (5.6.2)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -355,7 +360,7 @@ DEPENDENCIES
   listen (>= 3.3.3)
   newrelic_rpm
   pg (>= 0.18, < 2.0)
-  puma (~> 5.5)
+  puma (~> 5.6)
   rails (~> 6.1)
   rails-controller-testing
   rails-perftest
