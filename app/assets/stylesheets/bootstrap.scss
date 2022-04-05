@@ -1,13 +1,5 @@
+// @see https://getbootstrap.com/docs/5.0/customize/sass/
 
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
+$primary: #0072ed;
 
-// @import 'bootstrap/scss/bootstrap';
-
-@import "bootstrap/scss/root";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/type";
-@import "bootstrap/scss/images";
-
-@import "bootstrap/scss/grid";
+@import "bootstrap/scss/bootstrap";

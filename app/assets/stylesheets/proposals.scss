@@ -244,16 +244,16 @@ header {
 }
 // all images responsive by default
 img {
-  // @extend .img-responsive;
+ //@extend .img-responsive;
   margin: 0 auto;
 }
 
 .column {
-  // @extend .col-md-6;
+  @extend .col-md-6;
 }
 
 main {
-  // @extend .container;
+  @extend .container;
   // background-color: #eee;
   padding-bottom: 80px;
   width: 100%;
