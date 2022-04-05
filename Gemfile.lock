@@ -181,6 +181,10 @@ GEM
     mini_portile2 (2.8.0)
     minitest (5.15.0)
     msgpack (1.4.5)
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
     net-protocol (0.1.2)
       io-wait
       timeout
@@ -364,6 +368,7 @@ DEPENDENCIES
   foreman
   jbuilder (~> 2.7)
   listen (>= 3.3.3)
+  net-pop
   net-smtp
   newrelic_rpm
   pg (>= 0.18, < 2.0)
