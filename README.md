@@ -1,6 +1,6 @@
 # Participatory Voting
 
-[![Build Status](https://travis-ci.org/clirdlf/participatory_voting.svg?branch=main)](https://travis-ci.org/clirdlf/participatory_voting)
+![Build Status(https://github.com/waynegraham/dlme_tests/actions/workflows/ruby.yml/badge.svg)](https://github.com/clirdlf/participatory_voting/actions/workflows/ruby.yml)
 
 ## ConfTool Notes
 
