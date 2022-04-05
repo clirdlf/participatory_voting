@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/clirdlf/participatory_voting.svg?branch=main)](https://travis-ci.org/clirdlf/participatory_voting)
 
-## MemberSuite Notes
-
 ## ConfTool Notes
 
 To get the download for this, navigate to **Data Import and Export** on the **Overview** screen. Click on **Export Data** and select the following:
@@ -13,13 +11,27 @@ To get the download for this, navigate to **Data Import and Export** on the **Ov
         -   Select **Include abstracts of submissions**
 -   Click **Create Export File**
 
-This will download an Excel spreadsheet that you need to open in LibreOffice (there is a bug in the Mac version of Excel with UTF-8 characters and CSV files). In LibreOffice, click **File -> Save As** and select **Text (CSV)** and tick the **Edit filter settings** box. Set the output to `lib/assets` for the project and click **Save**. On the next screen, make sure the **Character set** field is set to **Unicode (UTF-8)**.
+This will download an Excel spreadsheet that you need to open in [LibreOffice](https://www.libreoffice.org/) (there is a bug in the Mac version of Excel with UTF-8 characters and CSV files). In LibreOffice, click **File -> Save As** and select **Text (CSV)** and tick the **Edit filter settings** box. Set the output to `lib/assets` for the project and click **Save**. On the next screen, make sure the **Character set** field is set to **Unicode (UTF-8)**.
 
 No need to delete any old files; the `rake` task uses the most recently modified file.
 
 > **Note**: Use [LibreOffice](https://www.libreoffice.org/) to save the Excel spreadsheet as a CSV.
 
 Add the data to the project (`git add /lib/assets`), commit the files to the repository (`git commit -m "Add data"`), and push the changes to github (`git push`).
+
+# Deployment
+
+- [ ] (Download Excel data file from ConfTool)[] (see https://github.com/clirdlf/participatory_voting/tree/main#conftool-notes)
+- [ ] Convert the `.xls` file into `.csv` in LibreOffice
+- [ ] Place converted file in `lib/assets`
+- [ ] Add the file to git (`git add lib/assets`)
+- [ ] Commit the changes (`git commit -am 'Add 202x data`)
+- [ ] Push to Github (`git push`)
+- [ ] Deploy to heroku (`git push heroku`)
+- [ ] Remove stale data on the production cluster (`heroku run rake reset:proposals`)
+- [ ] Validate the data populated properly ([https://voting.diglib.org](https://dlf-voting-app.herokuapp.com/))
+
+# Local Setup
 
 ## Setting Display Order
 

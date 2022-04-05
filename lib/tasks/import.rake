@@ -4,7 +4,7 @@ require 'csv'
 require 'roo'
 
 desc 'Convenience wrapper for resetting the database'
-task reset: ['db:reset', 'import:membersuite']
+#task reset: ['db:reset', 'import:conftool']
 
 def latest_csv
   # get the last updated CSV file from lib/assets
@@ -29,9 +29,9 @@ def add_csv(csv, ignore = [], order = [])
     unless contribution_type_ignore.include? row['contribution_type']
       Proposal.find_or_create_by!(id: row['paperID']) do |proposal|
         proposal.author              = row['authors'],
-                                       proposal.title               = row['title'],
-                                       proposal.abstract            = row['abstract'],
-                                       proposal.contribution_type   = row['contribution_type']
+        proposal.title               = row['title'],
+        proposal.abstract            = row['abstract'],
+        proposal.contribution_type   = row['contribution_type']
         proposal.contribution_format = row['contribution_format']
 
         proposal.order = contribution_order.index(row['contribution_type'])
@@ -121,24 +121,24 @@ namespace :import do
         # record to the string. Reordered to a field that is not displayed to
         # go around the problem
         proposal.author              = author,
-                                       proposal.title               = name,
-                                       proposal.abstract            = abstract,
-                                       proposal.contribution_format = split_format[1],
-                                       proposal.contribution_type   = split_format[0]
+        proposal.title               = name,
+        proposal.abstract            = abstract,
+        proposal.contribution_format = split_format[1],
+        proposal.contribution_type   = split_format[0]
         proposal.order               = contribution_order.index(split_format[0])
       end
     end
   end
 
-  desc 'Import CSV documents from ConfTool dump'
+  desc 'Import propo from ConfTool dump'
   task conftool: :environment do
     # contribution_type_ignore = ['LAC Preconference']
     contribution_type_ignore = ['']
 
     contribution_order = [
       'Learn@DLF',
-      '2020 DLF Forum',
-      'Digital Preservation 2020'
+      '2022 DLF Forum',
+      'Digital Preservation 2022'
     ]
 
     # add_csv(latest_csv)
@@ -148,9 +148,9 @@ namespace :import do
       unless contribution_type_ignore.include? row['contribution_type']
         Proposal.find_or_create_by!(id: row['paperID']) do |proposal|
           proposal.author              = row['authors'],
-                                         proposal.title               = row['title'],
-                                         proposal.abstract            = row['abstract'],
-                                         proposal.contribution_type   = row['contribution_type']
+          proposal.title               = row['title'],
+          proposal.abstract            = row['abstract'],
+          proposal.contribution_type   = row['contribution_type']
           proposal.contribution_format = row['contribution_format']
 
           proposal.order = contribution_order.index(row['contribution_type'])
@@ -162,7 +162,12 @@ end
 
 namespace :reset do
   desc 'Clean out the proposals, leave the people'
-  task proposals: [:environment, 'db:heroku:backup', 'db:heroku:download'] do
+  task :proposals do
     Proposal.destroy_all
+    sh 'rake import:conftool'
   end
+ 
+  # task proposals: [:environment, 'db:heroku:backup', 'db:heroku:download'] do
+  #   Proposal.destroy_all
+  # end
 end
