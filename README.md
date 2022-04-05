@@ -19,6 +19,8 @@ No need to delete any old files; the `rake` task uses the most recently modified
 
 > **Note**: Use [LibreOffice](https://www.libreoffice.org/) to save the Excel spreadsheet as a CSV.
 
+Add the data to the project (`git add /lib/assets`), commit the files to the repository (`git commit -m "Add data"`), and push the changes to github (`git push`).
+
 ## Setting Display Order
 
 Open `lib/tasks/import.rake` and search for the `contribution_order` (around line 52). Set these values from the `contribution_type` field from the CSV in the order you want them displayed.
@@ -31,6 +33,8 @@ In the `lib/tasks/import.rake`, there is a task to add a `Proposal` to the datab
 
 ## Local Dependencies
 
+https://devcenter.heroku.com/articles/heroku-cli 
+
 `brew tap heroku/brew && brew install heroku`
 `brew install postgresql`
 
@@ -38,7 +42,7 @@ In the `lib/tasks/import.rake`, there is a task to add a `Proposal` to the datab
 
 -   Install [RVM](https://rvm.io/)
 
-    $ rvm install 3.0.1
+    $ rvm install 3.1.1
 
 ## Project Setup
 
@@ -49,7 +53,7 @@ In the `lib/tasks/import.rake`, there is a task to add a `Proposal` to the datab
     $ bundle install
     $ rake db:create
     $ rake db:migrate
-    $ rake import:membersuite
+    $ rake import:conftool
 
 ## Postgresql
 
@@ -67,10 +71,10 @@ To start the service:
 
 ## Running the project
 
-Open the project in atom.
+Open the project in [Visual Studio Code](https://visualstudio.microsoft.com/vs/mac/).
 
     $ cd ~/projects/participatory_voting
-    $ atom .
+    $ code .
 
 Edit the files
 
@@ -87,7 +91,7 @@ This project is set up to auto-deploy after tests pass on [travis](https://travi
 
 ## Seeding the data
 
-Run the `import:membersuite` task in the terminal. If you want to clear out the data first, run `rake reset`, but the `import:membersuite` task _should_ be idempotent and update any changes detected in the spreadsheet.
+Run the `import:conftool` task in the terminal. If you want to clear out the data first, run `rake reset`, but the `import:conftool` task _should_ be idempotent and update any changes detected in the spreadsheet.
 
 ### Travis
 
@@ -118,7 +122,7 @@ From <https://devcenter.heroku.com/articles/upgrading-heroku-postgres-databases>
 - [ ] Force TLS connection (`config/environments/production.rb`)
 - [ ] Set default route to `root 'proposals#index'` (`config/routes.rb`)
 - [ ] Remove last year's data (`heroku rails console` then `Proposal.destroy_all`)
-- [ ] Load new data (`rake import:membersuite`)
+- [ ] Load new data (`rake import:conftool`)
 
 # Prelaunch Tests
 

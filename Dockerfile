@@ -1,4 +1,4 @@
-FROM ruby:2.7.1
+FROM ruby:3.1.1
 MAINTAINER Wayne Graham <wgraham@clir.org>
 
 # replace shell with bash

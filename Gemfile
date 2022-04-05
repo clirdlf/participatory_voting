@@ -34,6 +34,7 @@ gem 'newrelic_rpm', group: :production
 gem 'rails_12factor', group: :production
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'roo-xls'
+gem 'net-smtp', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.5.01', require: false
