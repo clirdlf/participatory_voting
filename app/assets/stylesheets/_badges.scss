@@ -6,11 +6,11 @@
   color: $foreground;
 
   &[href] {
-    @include hover-focus {
-      color: $foreground;
-      text-decoration: none;
-      background-color: darken($bg, 10%);
-    }
+    // @include hover-focus {
+    //   color: $foreground;
+    //   text-decoration: none;
+    //   background-color: darken($bg, 10%);
+    // }
   }
 }
 

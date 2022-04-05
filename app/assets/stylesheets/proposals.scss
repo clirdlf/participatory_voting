@@ -249,7 +249,7 @@ img {
 }
 
 .column {
-  @extend .col-md-6;
+  // @extend .col-md-6;
 }
 
 main {
@@ -261,7 +261,7 @@ main {
 }
 
 section {
-  @extend .row;
+  // @extend .row;
   // margin-top: 20px;
 }
 
