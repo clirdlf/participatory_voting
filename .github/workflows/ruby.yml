@@ -67,7 +67,8 @@ jobs:
         PGUSER: myapp
       run: |
         bin/rails db:setup
-      
+    
+    - name: setup-chromedriver
       # You may pin to the exact commit or the version.
       # uses: nanasess/setup-chromedriver@835cae695490330a7e390033b2b5bd67e6f8055e
       # https://github.com/marketplace/actions/setup-chromedriver
