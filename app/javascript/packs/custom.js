@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // @see https://wttech.blog/blog/2020/css-transitions-and-reduced-motion/
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion)').matches;
-  console.log(prefersReducedMotion);
+  // console.log(prefersReducedMotion);
 
   // @see https://codepen.io/joshuamasen/pen/OYaYbL
   // Set a variable for our button element.
@@ -36,13 +36,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // If that number is greater than 0, we'll scroll back to 0, or the top of the document.
     // We'll also animate that scroll with requestAnimationFrame:
     // https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+    window.scrollTo(0,0);
 
-    if (c > 0) {
-      window.requestAnimationFrame(scrollToTop);
-      // ScrollTo takes an x and a y coordinate.
-      // Increase the '10' value to get a smoother/slower scroll!
-      window.scrollTo(0, c - c / 10);
-    }
+    // if (c > 0) {
+    //   window.requestAnimationFrame(scrollToTop);
+    //   // ScrollTo takes an x and a y coordinate.
+    //   // Increase the '10' value to get a smoother/slower scroll!
+    //   window.scrollTo(0, c - c / 10);
+    // }
   };
 
 
