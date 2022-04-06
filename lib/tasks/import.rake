@@ -142,9 +142,10 @@ namespace :import do
     ]
 
     # add_csv(latest_csv)
+    puts "Importing from #{latest_csv}"
 
     CSV.foreach(latest_csv, headers: true, encoding: 'UTF-8') do |row|
-      puts "Adding #{row['title']}"
+      puts "Adding #{row['title']}.to_s"
       unless contribution_type_ignore.include? row['contribution_type']
         Proposal.find_or_create_by!(id: row['paperID']) do |proposal|
           proposal.author              = row['authors'],
