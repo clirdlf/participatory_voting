@@ -2,6 +2,7 @@
 
 require 'csv'
 require 'roo'
+require 'colorize'
 
 desc 'Convenience wrapper for resetting the database'
 #task reset: ['db:reset', 'import:conftool']
@@ -144,7 +145,7 @@ namespace :import do
     ]
 
     # add_csv(latest_csv)
-    puts "Importing from #{latest_csv}"
+    puts "Importing from #{latest_csv}".green
 
     CSV.foreach(latest_csv, headers: true, encoding: 'UTF-8') do |row|
       puts "Adding #{row['title']}"
@@ -167,7 +168,7 @@ namespace :reset do
   desc 'Clean out the proposals, leave the people'
   task proposals: :environment do
     Proposal.destroy_all
-    sh 'rake import:conftool'
+    sh 'import:conftool'
   end
  
   # task proposals: [:environment, 'db:heroku:backup', 'db:heroku:download'] do
