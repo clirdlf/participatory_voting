@@ -25,12 +25,16 @@ jobs:
         ruby-version: ['3.1']
     services:
       postgres:
-        image: postgres:latest
+        image: postgres
         env:
-          POSTGRES_USER: myapp
-          POSTGRES_DB: myapp_test
-          POSTGRES_PASSWORD: ""
-        ports: ["5432:5432"]
+          POSTGRES_USER: participatory_voting
+          POSTGRES_DB: participatory_voting_test
+          POSTGRES_PASSWORD: postgres
+      options: >-
+        --health-cmd pg_isready
+        --health-interval 10s
+        --health-timeout 5s
+        --health-retries 5
 
     steps:
     - uses: actions/checkout@v3
@@ -51,7 +55,9 @@ jobs:
       env:
         RAILS_ENV: test
         PGHOST: localhost
-        PGUSER: myapp
+        POSTGRES_DB: participatory_voting_test
+        POSTGRES_USER: participatory_voting
+        POSTGRES_PASSWORD: postgres
       run: |
         bin/rails db:setup
     
@@ -61,6 +67,13 @@ jobs:
       # https://github.com/marketplace/actions/setup-chromedriver
       uses: nanasess/setup-chromedriver@v1.0.1
     - name: Run tests
+      env:
+        PGHOST: localhost
+        POSTGRES_DB: participatory_voting_test
+        POSTGRES_USER: participatory_voting
+        POSTGRES_PASSWORD: postgres
+        PGPORT: ${{ job.services.postgres.ports[5432] }}
+        RAILS_ENV: test
       run: |
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
