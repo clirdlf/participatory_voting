@@ -28,8 +28,23 @@ Add the data to the project (`git add /lib/assets`), commit the files to the rep
 - [ ] Commit the changes (`git commit -am 'Add 202x data`)
 - [ ] Push to Github (`git push`)
 - [ ] Deploy to heroku (`git push heroku`)
-- [ ] Remove stale data on the production cluster (`heroku run rake reset:proposals`)
+- [ ] Remove stale data on the production cluster (`heroku run rails reset`)
 - [ ] Validate the data populated properly ([https://voting.diglib.org](https://dlf-voting-app.herokuapp.com/))
+
+## If something goes wrong
+
+There are `rake` tasks (aliased to `rails`) that can be called individually to perform data configurations:
+
+    $ rake reset:proposals # Delete all proposals, but leave the User accounts
+    $ rake import:conftool # Import data from the last modified CSV file
+
+To remove a CSV file (should it have an issue):
+
+    $ git rm lib/assets/file_you_want_to_remove.csv
+    $ git commit -am 'Remove xxx file'
+    $ git push
+    $ git push heroku
+    $ heroku run rails reset
 
 # Local Setup
 
