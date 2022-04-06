@@ -57,6 +57,7 @@ jobs:
         POSTGRES_USER: ${{ env.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
         POSTGRES_DB: ${{ env.POSTGRES_DB }}
+        POSTGRES_PORT: 5432
       run: |
         bin/rails db:setup 
     
