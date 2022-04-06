@@ -7,6 +7,11 @@
 
 name: Rails
 
+env:
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: postgres
+  POSTGRES_DB: participatory_voting_test
+  RAILS_ENV: test
 on:
   push:
     branches: [ main ]
@@ -26,11 +31,10 @@ jobs:
     services:
       postgres:
         image: postgres
+        ports: ["5432:5432"]
         env:
-          POSTGRES_USER: participatory_voting
-          POSTGRES_DB: participatory_voting_test
-          POSTGRES_PASSWORD: postgres
-
+          POSTGRES_USER: ${{ env.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
     steps:
     - uses: actions/checkout@v3
     - name: Set up Ruby
@@ -49,13 +53,10 @@ jobs:
     - name: Setup database
       env:
         RAILS_ENV: test
-        PGHOST: localhost
-        POSTGRES_DB: participatory_voting_test
-        POSTGRES_USER: participatory_voting
-        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: ${{ env.POSTGRES_USER }}
+        POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
       run: |
-        bin/rails db:setup
-    
+        bin/rails db:setup RAILS_ENV=${{ env.RAILS_ENV }}
     - name: setup-chromedriver
       # You may pin to the exact commit or the version.
       # uses: nanasess/setup-chromedriver@835cae695490330a7e390033b2b5bd67e6f8055e
