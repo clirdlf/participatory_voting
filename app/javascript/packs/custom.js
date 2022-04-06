@@ -63,21 +63,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function clickHandler(e) {
     e.preventDefault();
-    const href = this.getAttribute('href');
-    const offsetTop = document.querySelector(href).offsetTop;
-    // console.log('href', href);
-    // console.log('offset', offsetTop);
+    const section = this.getAttribute('data-section');
+    const offsetTop = document.getElementById(section).offsetTop;
 
-    if (!prefersReducedMotion) {
-      scroll({
-        top: offsetTop,
-        behavior: "smooth"
-      });
-    } else {
-      scroll({
-        top: offsetTop
-      });
-    }
+    // const offsetTop = document.querySelector(href).offsetTop;
+    // console.log('section', section);
+    // console.log('offset', offsetTop);
+    scroll({top: offsetTop});
 
   }
 

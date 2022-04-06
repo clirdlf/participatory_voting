@@ -80,9 +80,9 @@ namespace :import do
     contribution_type_ignore = ['']
 
     contribution_order = [
-      # 'Learn@DLF',
-      # '2020 DLF Forum',
-      # 'Digital Preservation 2020'
+      'Learn@DLF',
+      '2022 DLF Forum',
+      'Digital Preservation 2022'
     ]
 
     converted = Roo::Spreadsheet.open(latest_excel, headers: true).to_csv
@@ -138,7 +138,7 @@ namespace :import do
     contribution_order = [
       'Learn@DLF',
       '2022 DLF Forum',
-      'Digital Preservation 2022'
+      'Digital Preservation 2022: Preserving Legacy'
     ]
 
     # add_csv(latest_csv)

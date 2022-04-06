@@ -4,17 +4,13 @@
 @mixin badge-var($bg, $foreground: #fff) {
   background-color: $bg;
   color: $foreground;
-
-  &[href] {
-    // @include hover-focus {
-    //   color: $foreground;
-    //   text-decoration: none;
-    //   background-color: darken($bg, 10%);
-    // }
-  }
 }
 
 .badge-90-minute-workshop {
+  @include badge-var($shadow-blue);
+}
+
+.badge-45-minute-workshop {
   @include badge-var($shadow-blue);
 }
 
@@ -22,11 +18,19 @@
   @include badge-var($glossy-grape);
 }
 
+.badge-2-minute-lightning-talk-poster {
+  @include badge-var($middle-blue-green);
+}
+
 .badge-6-2-1-lightning-talk {
   @include badge-var($middle-blue-green);
 }
 
 .badge-15-minute-presentation {
+  @include badge-var($cedar-chest);
+}
+
+.badge-15-minute-paper {
   @include badge-var($cedar-chest);
 }
 

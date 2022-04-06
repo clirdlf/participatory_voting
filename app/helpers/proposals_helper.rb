@@ -52,13 +52,15 @@ module ProposalsHelper
            when '15-minute Talk/Demo'
              'desktop'
            when '10-15-minute Tutorial'
-             'hands-helping'
+             'handshake-angle'
+           when '45-minute Workshop'
+              'handshake-angle'
            when 'Poster'
              'map'
            when 'Hands-on Workshop'
-             'hands-helping'
+             'handshake-angle'
            when '90-minute Workshop'
-             'hands-helping'
+             'handshake-angle'
            # icon = 'hand-spock-o'
            when '5-minute Lightning Talk'
              'bolt'
@@ -75,6 +77,6 @@ module ProposalsHelper
              'user'
            end
 
-    "<span class='fas fa-#{icon}' aria-hidden='true'></span>".html_safe
+    "<span class='fa-solid fa-#{icon}' aria-hidden='true'></span>".html_safe
   end
 end
