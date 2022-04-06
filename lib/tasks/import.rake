@@ -162,7 +162,7 @@ end
 
 namespace :reset do
   desc 'Clean out the proposals, leave the people'
-  task :proposals do
+  task proposals: :environment do
     Proposal.destroy_all
     sh 'rake import:conftool'
   end
