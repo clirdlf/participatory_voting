@@ -1,6 +1,6 @@
 # Participatory Voting
 
-![Build Status(https://github.com/waynegraham/dlme_tests/actions/workflows/ruby.yml/badge.svg)](https://github.com/clirdlf/participatory_voting/actions/workflows/ruby.yml)
+[![Rails](https://github.com/clirdlf/participatory_voting/actions/workflows/rails.yml/badge.svg)](https://github.com/clirdlf/participatory_voting/actions/workflows/rails.yml)
 
 ## ConfTool Notes
 

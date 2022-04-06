@@ -30,8 +30,9 @@ jobs:
         ruby-version: ['3.1']
     services:
       postgres:
-        image: postgres
-        ports: ["5432:5432"]
+        image: postgres:latest
+        ports:
+        - 5432:5432
         env:
           POSTGRES_USER: ${{ env.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
@@ -55,8 +56,10 @@ jobs:
         RAILS_ENV: test
         POSTGRES_USER: ${{ env.POSTGRES_USER }}
         POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+        POSTGRES_DB: ${{ env.POSTGRES_DB }}
       run: |
-        bin/rails db:setup RAILS_ENV=${{ env.RAILS_ENV }}
+        bin/rails db:setup 
+    
     - name: setup-chromedriver
       # You may pin to the exact commit or the version.
       # uses: nanasess/setup-chromedriver@835cae695490330a7e390033b2b5bd67e6f8055e
