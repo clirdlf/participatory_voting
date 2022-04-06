@@ -9,8 +9,8 @@ desc 'Convenience wrapper for resetting the database'
 
 def latest_csv
   # get the last updated CSV file from lib/assets
-  # Dir.glob(Rails.root.join('lib', 'assets', '*.csv')).max_by { |f| File.mtime(f) }
-  Dir.glob('./lib/assets/*.csv').max_by { |f| File.mtime(f) }
+  Dir.glob(Rails.root.join('lib', 'assets', '*.csv')).max_by { |f| File.mtime(f) }
+  # Dir.glob('./lib/assets/*.csv').max_by { |f| File.mtime(f) }
 end
 
 def latest_excel
