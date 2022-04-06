@@ -5,7 +5,7 @@ require 'roo'
 require 'colorize'
 
 desc 'Convenience wrapper for resetting the database'
-#task reset: ['db:reset', 'import:conftool']
+task reset: ['reset:proposals', 'import:conftool']
 
 def latest_csv
   # get the last updated CSV file from lib/assets
@@ -168,7 +168,6 @@ namespace :reset do
   desc 'Clean out the proposals, leave the people'
   task proposals: :environment do
     Proposal.destroy_all
-    sh 'import:conftool'
   end
  
   # task proposals: [:environment, 'db:heroku:backup', 'db:heroku:download'] do
