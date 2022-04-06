@@ -6,12 +6,12 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <%= flash[:recaptcha_error] %>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
       <%= f.label :email, class: 'sr-only' %><br/>
       <%= f.email_field :email, class: 'form-control', autofocus: true, required: true, placeholder: 'Email address', autocomplete: "email" %>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
       <%= f.label :password, class: 'sr-only' %>
 
       <%= f.password_field :password, class: 'form-control', required: true, placeholder: 'Password', autocomplete: "new-password" %>
@@ -21,7 +21,7 @@
           <!-- <br /> -->
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
           <%= f.label :password_confirmation, class: 'sr-only' %>
           <%= f.password_field :password_confirmation, class: 'form-control', required: true, placeholder: 'Confirm Password', autocomplete: "new-password" %>
         </div>
