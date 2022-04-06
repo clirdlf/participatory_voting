@@ -49,7 +49,7 @@ jobs:
         yarn: true
     - name: Install packages
       run: |
-        bundle install --jobs 4 
+        bundle install 
         yarn install
     - name: Setup database
       env:
