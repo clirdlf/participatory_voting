@@ -5,7 +5,7 @@
 # This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
 # For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
 
-name: Ruby
+name: Rails
 
 on:
   push:
@@ -47,19 +47,10 @@ jobs:
       with:
         node-version: 10.15.3
         yarn: true
-    - name: Find yarn cache location
-      id: yarn-cache
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-    - name: JS package cache
-      uses: actions/cache@v1
-      with:
-        path: ${{ steps.yarn-cache.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
     - name: Install packages
       run: |
-        yarn install --pure-lockfile
+        bundle install --jobs 4 
+        yarn install
     - name: Setup database
       env:
         RAILS_ENV: test
