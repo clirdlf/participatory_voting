@@ -30,11 +30,6 @@ jobs:
           POSTGRES_USER: participatory_voting
           POSTGRES_DB: participatory_voting_test
           POSTGRES_PASSWORD: postgres
-      options: >-
-        --health-cmd pg_isready
-        --health-interval 10s
-        --health-timeout 5s
-        --health-retries 5
 
     steps:
     - uses: actions/checkout@v3
