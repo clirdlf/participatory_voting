@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 
 # gem 'bootstrap',  '~>4.3.1'
 gem 'acts_as_votable'
+gem 'colorize'
 gem 'devise'
 gem 'newrelic_rpm', group: :production
 gem 'rails_12factor', group: :production

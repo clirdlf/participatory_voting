@@ -130,6 +130,7 @@ GEM
       capybara (>= 1.0, < 4)
       launchy
     childprocess (4.1.0)
+    colorize (0.8.1)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
     devise (4.8.1)
@@ -364,6 +365,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   capybara-screenshot
+  colorize
   devise
   dotenv-rails
   factory_bot_rails
