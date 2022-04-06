@@ -8,11 +8,13 @@ desc 'Convenience wrapper for resetting the database'
 
 def latest_csv
   # get the last updated CSV file from lib/assets
-  Dir.glob('./lib/assets/*.csv').max_by { |f| File.mtime(f) }
+  Dir.glob(Rails.root.join('lib', 'assets', '*.csv')).max_by { |f| File.mtime(f) }
+  # Dir.glob('./lib/assets/*.csv').max_by { |f| File.mtime(f) }
 end
 
 def latest_excel
-  Dir.glob('./lib/assets/*.xls*').max_by { |f| File.mtime(f) }
+  Dir.glob(Rails.root.join('lib', 'assets', '*.xls*')).max_by { |f| File.mtime(f) }
+  # Dir.glob('./lib/assets/*.xls*').max_by { |f| File.mtime(f) }
 end
 
 def latest_export(extension)
@@ -145,7 +147,7 @@ namespace :import do
     puts "Importing from #{latest_csv}"
 
     CSV.foreach(latest_csv, headers: true, encoding: 'UTF-8') do |row|
-      puts "Adding #{row['title']}.to_s"
+      puts "Adding #{row['title']}"
       unless contribution_type_ignore.include? row['contribution_type']
         Proposal.find_or_create_by!(id: row['paperID']) do |proposal|
           proposal.author              = row['authors'],
