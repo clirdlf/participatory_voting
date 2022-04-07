@@ -43,7 +43,7 @@ class ProposalsController < ApplicationController
   end
 
   # Only allow a list of trusted parameters through.
-  def proposal_params
-    params.require(:proposal).permit(:author, :title, :abstract)
-  end
+  # def proposal_params
+  #   params.require(:proposal).permit(:author, :title, :abstract)
+  # end
 end
