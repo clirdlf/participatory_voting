@@ -41,18 +41,20 @@ jobs:
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
+
+      - name: setup-chromedriver
+        # You may pin to the exact commit or the version.
+        # uses: nanasess/setup-chromedriver@835cae695490330a7e390033b2b5bd67e6f8055e
+        # https://github.com/marketplace/actions/setup-chromedriver
+        uses: nanasess/setup-chromedriver@v1.0.1
+      
       # Add or replace test runners here
       - name: Run tests
-        run: bin/rake rspec --f j -o tmp/rspec_results.json -f p
-      - name: RSpec Report
-      # You may pin to the exact commit or the version.
-      # uses: SonicGarden/rspec-report-action@5e02d5a3e8dcbcb48e69a867c7a84993f749bf21
-        uses: SonicGarden/rspec-report-action@v1
-        with:
-          # Github token
-          token: ${{ secrets.GITHUB_TOKEN }}
-          json-path:  tmp/rspec_results.json
-        if: always()
+        run: |
+        export DISPLAY=:99
+        chromedriver --url-base=/wd/hub &
+        sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+        bundle exec rake spec
 
   lint:
     runs-on: ubuntu-latest
@@ -60,7 +62,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
+        user: ruby/setup-ruby@v1
+        #uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
         with:
           bundler-cache: true
       # Add or replace any other lints here
