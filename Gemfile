@@ -36,9 +36,9 @@ gem 'rails_12factor', group: :production
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'roo-xls'
 # Required because of a bug in the mail gem (https://stackoverflow.com/questions/70500220/rails-7-ruby-3-1-loaderror-cannot-load-such-file-net-smtp)
-gem 'net-smtp', require: false
-gem 'net-pop', require: false
 gem 'net-imap', require: false
+gem 'net-pop', require: false
+gem 'net-smtp', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.5.01', require: false
@@ -62,6 +62,7 @@ group :development do
   gem 'rails-perftest'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

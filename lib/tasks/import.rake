@@ -9,12 +9,12 @@ task reset: ['reset:proposals', 'import:conftool']
 
 def latest_csv
   # get the last updated CSV file from lib/assets
-  Dir.glob(Rails.root.join('lib', 'assets', '*.csv')).max_by { |f| File.mtime(f) }
+  Dir.glob(Rails.root.join('/lib/assets/*.csv')).max_by { |f| File.mtime(f) }
   # Dir.glob('./lib/assets/*.csv').max_by { |f| File.mtime(f) }
 end
 
 def latest_excel
-  Dir.glob(Rails.root.join('lib', 'assets', '*.xls*')).max_by { |f| File.mtime(f) }
+  Dir.glob(Rails.root.join('/lib/assets/*.xls*')).max_by { |f| File.mtime(f) }
   # Dir.glob('./lib/assets/*.xls*').max_by { |f| File.mtime(f) }
 end
 
@@ -32,9 +32,9 @@ def add_csv(csv, ignore = [], order = [])
     unless contribution_type_ignore.include? row['contribution_type']
       Proposal.find_or_create_by!(id: row['paperID']) do |proposal|
         proposal.author              = row['authors'],
-        proposal.title               = row['title'],
-        proposal.abstract            = row['abstract'],
-        proposal.contribution_type   = row['contribution_type']
+                                       proposal.title               = row['title'],
+                                       proposal.abstract            = row['abstract'],
+                                       proposal.contribution_type   = row['contribution_type']
         proposal.contribution_format = row['contribution_format']
 
         proposal.order = contribution_order.index(row['contribution_type'])
@@ -119,15 +119,15 @@ namespace :import do
 
       puts "Adding #{name}"
 
-      Proposal.find_or_create_by!(id: id) do |proposal|
+      Proposal.find_or_create_by!(id:) do |proposal|
         # NOTE: for some reason, the field in the first position adds the entire
         # record to the string. Reordered to a field that is not displayed to
         # go around the problem
         proposal.author              = author,
-        proposal.title               = name,
-        proposal.abstract            = abstract,
-        proposal.contribution_format = split_format[1],
-        proposal.contribution_type   = split_format[0]
+                                       proposal.title               = name,
+                                       proposal.abstract            = abstract,
+                                       proposal.contribution_format = split_format[1],
+                                       proposal.contribution_type   = split_format[0]
         proposal.order               = contribution_order.index(split_format[0])
       end
     end
@@ -153,9 +153,9 @@ namespace :import do
       unless contribution_type_ignore.include? row['contribution_type']
         Proposal.find_or_create_by!(id: row['paperID']) do |proposal|
           proposal.author              = row['authors'],
-          proposal.title               = row['title'],
-          proposal.abstract            = row['abstract'],
-          proposal.contribution_type   = row['contribution_type']
+                                         proposal.title               = row['title'],
+                                         proposal.abstract            = row['abstract'],
+                                         proposal.contribution_type   = row['contribution_type']
           proposal.contribution_format = row['contribution_format']
 
           proposal.order = contribution_order.index(row['contribution_type'])
@@ -170,7 +170,7 @@ namespace :reset do
   task proposals: :environment do
     Proposal.destroy_all
   end
- 
+
   # task proposals: [:environment, 'db:heroku:backup', 'db:heroku:download'] do
   #   Proposal.destroy_all
   # end

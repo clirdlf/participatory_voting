@@ -54,7 +54,7 @@ module ProposalsHelper
            when '10-15-minute Tutorial'
              'handshake-angle'
            when '45-minute Workshop'
-              'handshake-angle'
+             'handshake-angle'
            when 'Poster'
              'map'
            when 'Hands-on Workshop'
