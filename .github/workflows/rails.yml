@@ -36,10 +36,15 @@ jobs:
         env:
           POSTGRES_USER: ${{ env.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ env.POSTGRES_DB }}
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
     - uses: actions/checkout@v3
+
     - name: Install library for postgres
       run: sudo apt-get install libpq-dev
+      
     - name: Set up Ruby
     # To automatically get bug fixes and new Ruby versions for ruby/setup-ruby,
     # change this to (see https://github.com/ruby/setup-ruby#versioning):
@@ -56,12 +61,10 @@ jobs:
     - name: Setup database
       env:
         RAILS_ENV: test
-        POSTGRES_USER: ${{ env.POSTGRES_USER }}
-        POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
-        POSTGRES_DB: ${{ env.POSTGRES_DB }}
-        POSTGRES_PORT: 5432
+        PGUSER: ${{ env.POSTGRES_USER }}
+        PGPORT: ${{ job.services.postgres.ports[5432] }}
       run: |
-        bin/rails db:setup 
+        bundle exec bin/rails db:setup 
     
     - name: setup-chromedriver
       # You may pin to the exact commit or the version.
@@ -70,12 +73,12 @@ jobs:
       uses: nanasess/setup-chromedriver@v1.0.1
     - name: Run tests
       env:
-        PGHOST: localhost
-        POSTGRES_DB: participatory_voting_test
-        POSTGRES_USER: participatory_voting
-        POSTGRES_PASSWORD: postgres
-        PGPORT: ${{ job.services.postgres.ports[5432] }}
-        RAILS_ENV: test
+        # PGHOST: localhost
+        # POSTGRES_DB: participatory_voting_test
+        # POSTGRES_USER: participatory_voting
+        # POSTGRES_PASSWORD: postgres
+        # PGPORT: ${{ job.services.postgres.ports[5432] }}
+        # RAILS_ENV: test
       run: |
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
