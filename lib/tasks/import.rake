@@ -141,7 +141,8 @@ namespace :import do
     contribution_order = [
       'Learn@DLF',
       '2022 DLF Forum',
-      'Digital Preservation 2022: Preserving Legacy'
+      'Digital Preservation 2022: Preserving Legacy',
+      'Digitizing Hidden Collections Symposium'
     ]
 
     # add_csv(latest_csv)
