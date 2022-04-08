@@ -1,6 +1,6 @@
 # Participatory Voting
 
-[![Rails](https://github.com/clirdlf/participatory_voting/actions/workflows/rails.yml/badge.svg)](https://github.com/clirdlf/participatory_voting/actions/workflows/rails.yml)
+[![Ruby on Rails CI](https://github.com/clirdlf/participatory_voting/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/clirdlf/participatory_voting/actions/workflows/rubyonrails.yml)
 
 ## ConfTool Notes
 
