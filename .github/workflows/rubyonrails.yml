@@ -40,11 +40,11 @@ jobs:
           bundler-cache: true
 
       # Add yarn
-      - name : Install node (and yarn)
+      - name: Setup node (and yarn)
         uses: actions/setup-node@v3
         with:
-          cache: 'yarn'
-        run: yarn install
+          cache: yarn
+      - run: yarn install
 
       # Add or replace database setup steps here
       - name: Set up database schema
