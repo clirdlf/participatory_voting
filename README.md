@@ -46,6 +46,16 @@ To remove a CSV file (should it have an issue):
     $ git push heroku
     $ heroku run rails reset
 
+## User can't reset password
+
+The backend uses SendGrid for password resets, so the first place to check is the spam filter. If the email is just not getting there, the best thing to do is just delete the User (please verify that the sender is using the same email address).
+
+```
+$ heroku run rails console
+
+User.find_by_email('foo@bar.com').destroy
+```
+
 # Local Setup
 
 ## Setting Display Order
