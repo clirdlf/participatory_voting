@@ -16,5 +16,4 @@ Rails.application.routes.draw do
 
   root 'proposals#index'
   # root 'pages#home'
-
 end

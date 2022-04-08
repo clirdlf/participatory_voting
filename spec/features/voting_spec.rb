@@ -3,7 +3,7 @@
 # @see https://github.com/teamcapybara/capybara#using-capybara-with-rspec
 
 describe 'the voting process', type: :feature do
-  before :each do
+  before do
     @proposal = create(:proposal)
   end
 
@@ -32,7 +32,7 @@ describe 'the voting process', type: :feature do
 
   describe 'The AJAX voting system', js: true do
     # see https://github.com/heartcombo/devise/wiki/How-To:-Test-with-Capybara#capybara-webkit
-    before :each do
+    before do
       user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
       login_as(user, scope: :user, run_callbacks: false)
     end
