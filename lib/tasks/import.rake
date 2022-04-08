@@ -9,17 +9,17 @@ task reset: ['reset:proposals', 'import:conftool']
 
 def latest_csv
   # get the last updated CSV file from lib/assets
-  Dir.glob(Rails.root.join('/lib/assets/*.csv')).max_by { |f| File.mtime(f) }
+  Dir.glob(Rails.root.join('lib/assets/*.csv')).max_by { |f| File.mtime(f) }
   # Dir.glob('./lib/assets/*.csv').max_by { |f| File.mtime(f) }
 end
 
 def latest_excel
-  Dir.glob(Rails.root.join('/lib/assets/*.xls*')).max_by { |f| File.mtime(f) }
+  Dir.glob(Rails.root.join('lib/assets/*.xls*')).max_by { |f| File.mtime(f) }
   # Dir.glob('./lib/assets/*.xls*').max_by { |f| File.mtime(f) }
 end
 
 def latest_export(extension)
-  Dir.glob("./lib/assets/*#{extension}").max_by { |f| File.mtime(f) }
+  Dir.glob("lib/assets/*#{extension}").max_by { |f| File.mtime(f) }
 end
 
 def add_csv(csv, ignore = [], order = [])

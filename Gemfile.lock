@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 1a1788768ec39a1f252ea756ed9b53cdd21124d5
+  revision: 8f3ad134291a7f6a4f6e6bb92bfa2d0abc392812
   branch: main
   specs:
     rspec-core (3.12.0.pre)
@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 0b4ff504a6e1d83daa675627a42ad94ddb74fc85
+  revision: 7978a5bdcd65fc4f3869f1c8bc15c54e1270469e
   branch: main
   specs:
     rspec-expectations (3.12.0.pre)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 07b6f277b63b05032435b41e0ab740d3828a2cef
+  revision: 4be625e322ed1da7607ecab0e838efd9453ac0c6
   branch: main
   specs:
     rspec-mocks (3.12.0.pre)
@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 72ec96f0b893ed55ae7a42dd03477fa89064a186
+  revision: ae9265fd55a1a4965d164d96df7a246a48b64523
   branch: main
   specs:
     rspec-rails (6.0.0.pre)
@@ -40,7 +40,7 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: 2a1fcfaeb28c074b8ce0e4b2f349d8a81bbaff30
+  revision: 48c1146217ae712b602a2912133de53c447bc324
   branch: main
   specs:
     rspec-support (3.12.0.pre)
@@ -186,7 +186,7 @@ GEM
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.15.0)
-    msgpack (1.4.5)
+    msgpack (1.5.1)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -275,7 +275,7 @@ GEM
       nokogiri
       roo (>= 2.0.0, < 3)
       spreadsheet (> 0.9.0)
-    rubocop (1.26.1)
+    rubocop (1.27.0)
       parallel (~> 1.10)
       parser (>= 3.1.0.0)
       rainbow (>= 2.2.2, < 4.0)
