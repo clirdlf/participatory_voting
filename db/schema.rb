@@ -54,9 +54,9 @@ ActiveRecord::Schema.define(version: 2020_04_21_182813) do
 
   create_table "votes", force: :cascade do |t|
     t.string "votable_type"
-    t.bigint "votable_id"
+    t.integer "votable_id"
     t.string "voter_type"
-    t.bigint "voter_id"
+    t.integer "voter_id"
     t.boolean "vote_flag"
     t.string "vote_scope"
     t.integer "vote_weight"
