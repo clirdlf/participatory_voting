@@ -29,6 +29,7 @@ Add the data to the project (`git add /lib/assets`), commit the files to the rep
 - [ ] `git pull`
 - [ ] Place converted file in `lib/assets`
 - [ ] Add the file to git (`git add lib/assets`)
+- [ ] `git status`
 - [ ] Commit the changes (`git commit -am 'Add 202x data'`)
 - [ ] Push to Github (`git push`)
 - [ ] Deploy to heroku (`git push heroku`)
