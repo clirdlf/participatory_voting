@@ -23,9 +23,11 @@ Add the data to the project (`git add /lib/assets`), commit the files to the rep
 
 - [ ] (Download Excel data file from ConfTool)[] (see https://github.com/clirdlf/participatory_voting/tree/main#conftool-notes)
 - [ ] Convert the `.xls` file into `.csv` in LibreOffice
+- [ ] Open iTerm
+- [ ] `cd projects/participatory_voting`
 - [ ] Place converted file in `lib/assets`
 - [ ] Add the file to git (`git add lib/assets`)
-- [ ] Commit the changes (`git commit -am 'Add 202x data`)
+- [ ] Commit the changes (`git commit -am 'Add 202x data'`)
 - [ ] Push to Github (`git push`)
 - [ ] Deploy to heroku (`git push heroku`)
 - [ ] Remove stale data on the production cluster (`heroku run rails reset`)
