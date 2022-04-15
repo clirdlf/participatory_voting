@@ -36,72 +36,40 @@ module ProposalsHelper
   # @param format Format from data
   # @return String HTML string of FontAwesome icon
   def format_icon(format)
-    icon = case format
-           when 'NDSA Working Group Meeting'
-             'users'
-           when '15-minute Presentation'
-             'user'
-           when 'Dork Shorts'
-             'hand-spock'
-           when 'Snapshot'
-             'camera'
-           when 'Panel'
-             'users'
-           when '15-minute Talk/Demo'
-             'desktop'
-           when '10-15-minute Tutorial'
-             'handshake-angle'
-           when 'Workshop'
-             'handshake-angle'
-           when 'Hands-on Workshop'
-             'handshake-angle'
-           when '45-minute Workshop'
-             'handshake-angle'
-            when '90-minute Workshop'
-              'handshake-angle'
-           when '3 Hour Workshomapp'
-             'handshake-angle'
-           when 'Poster'
-             'map'
-           # icon = 'hand-spock-o'
-           when '5-minute Lightning Talk'
-             'bolt'
-           when '25-minute Birds of a Feather (BOAF) Session'
-             'feather'
-           when 'Solution Room'
-             'house-user'
-           when '6:2:1 Lightning Talk'
-             # icon = 'lightbulb-o'
-             'bolt'
-           when 'Lunchtime Working Session'
-             'flask'
-           else
-             'user'
-           end
-
-    "<span class='fa-solid fa-#{icon}' aria-hidden='true'></span>".html_safe
+    "<span class='fa-solid fa-#{parse_format(format)}' aria-hidden='true'></span>".html_safe
   end
 end
 
+##
+# Map icons to the formats
+#
+# @param format Session format from dataset
+# @return String icon name to use for font-awesome
 def parse_format(format)
-  @format_map = {
+  format_map = {
     'NDSA Working Group Meeting': 'users',
     'Panel': 'users',
+    '45-minute Panel': 'users',
     'Snapshot': 'camera',
     'Dork Shorts': 'hand-spock',
-    '15-minute Presentation': 'handshake-angle',
     '10-15-minute Tutorial': 'handshake-angle',
     'Workshop': 'handshake-angle',
     'Hands-on Workshop': 'handshake-angle',
     '45-minute Workshop': 'handshake-angle',
     '90-minute Workshop': 'handshake-angle',
-    '3 Hour Workshop': 'handshake-angle',
+    'Three-hour Workshop': 'handshake-angle',
     'Poster': 'map',
     '5-minute Lightning Talk': 'bolt',
+    '2-minute Lightning Talk/Poster': 'bolt',
     '6:2:1 Lightning Talk': 'bolt',
     '25-minute Birds of a Feather (BOAF) Session': 'feather',
     'Solution Room': 'house-user',
-    'Lunchtime Working Session': 'pot-food',
+    'Lunchtime Working Session': 'pot-food'
   }
-  @format_map[format.to_sym]
+
+  # Anything with Presentation should return user
+
+  return 'user' unless format_map.key?(format.to_sym)
+  
+  format_map[format.to_sym]
 end
