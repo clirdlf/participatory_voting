@@ -70,6 +70,6 @@ def parse_format(format)
   # Anything with Presentation should return user
 
   return 'user' unless format_map.key?(format.to_sym)
-  
+
   format_map[format.to_sym]
 end

@@ -10,7 +10,7 @@ task reset: ['reset:proposals', 'import:conftool']
 def latest_csv
   # get the last updated CSV file from lib/assets
   # Dir.glob(Rails.root.join('lib/assets/*.csv')).max_by { |f| File.mtime(f) }
-  Dir.glob('./lib/assets/*.csv').sort.last
+  Dir.glob('./lib/assets/*.csv').sort.max
   # Dir.glob('./lib/assets/*.csv').max_by { |f| File.mtime(f) }
 end
 
