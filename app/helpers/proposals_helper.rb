@@ -59,7 +59,7 @@ module ProposalsHelper
              'handshake-angle'
             when '90-minute Workshop'
               'handshake-angle'
-           when '3 Hour Workshop'
+           when '3 Hour Workshomapp'
              'handshake-angle'
            when 'Poster'
              'map'
@@ -81,4 +81,27 @@ module ProposalsHelper
 
     "<span class='fa-solid fa-#{icon}' aria-hidden='true'></span>".html_safe
   end
+end
+
+def parse_format(format)
+  @format_map = {
+    'NDSA Working Group Meeting': 'users',
+    'Panel': 'users',
+    'Snapshot': 'camera',
+    'Dork Shorts': 'hand-spock',
+    '15-minute Presentation': 'handshake-angle',
+    '10-15-minute Tutorial': 'handshake-angle',
+    'Workshop': 'handshake-angle',
+    'Hands-on Workshop': 'handshake-angle',
+    '45-minute Workshop': 'handshake-angle',
+    '90-minute Workshop': 'handshake-angle',
+    '3 Hour Workshop': 'handshake-angle',
+    'Poster': 'map',
+    '5-minute Lightning Talk': 'bolt',
+    '6:2:1 Lightning Talk': 'bolt',
+    '25-minute Birds of a Feather (BOAF) Session': 'feather',
+    'Solution Room': 'house-user',
+    'Lunchtime Working Session': 'pot-food',
+  }
+  @format_map[format.to_sym]
 end
