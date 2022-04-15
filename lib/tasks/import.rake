@@ -135,6 +135,12 @@ namespace :import do
     end
   end
 
+  desc 'Shows latest CSV file'
+  task latest: :environment do
+    Dir.glob(Rails.root.join('lib/assets/*.csv')) { |f| puts "#{f}: #{File.mtime(f)}" }
+    puts "Latest CSV file: #{latest_csv}".green
+  end
+
   desc 'Import propo from ConfTool dump'
   task conftool: :environment do
     # contribution_type_ignore = ['LAC Preconference']
