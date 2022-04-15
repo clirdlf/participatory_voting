@@ -10,6 +10,10 @@
   @include badge-var($shadow-blue);
 }
 
+.badge-three-hour-workshop {
+  @include badge-var($shadow-blue);
+} 
+
 .badge-45-minute-workshop {
   @include badge-var($shadow-blue);
 }
