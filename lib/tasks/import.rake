@@ -158,7 +158,7 @@ namespace :import do
     puts "Importing from #{latest_csv}".green
 
     CSV.foreach(latest_csv, headers: true, encoding: 'UTF-8') do |row|
-      puts "Adding #{row['title']}"
+      puts "\tAdding #{row['title']}".yellow
       unless contribution_type_ignore.include? row['contribution_type']
         Proposal.find_or_create_by!(id: row['paperID']) do |proposal|
           proposal.author              = row['authors'],
