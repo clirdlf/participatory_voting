@@ -1,59 +1,67 @@
 @import "bootstrap";
 @import "fonts";
 @import "variables";
+
 @mixin badge-var($bg, $foreground: #fff) {
   background-color: $bg;
   color: $foreground;
 }
 
-.badge-90-minute-workshop {
+// workshops
+.badge-90-minute-workshop, 
+.badge-three-hour-workshop,
+.badge-45-minute-workshop, 
+.badge-10-15-minute-tutorial 
+{
   @include badge-var($shadow-blue);
 }
 
-.badge-three-hour-workshop {
-  @include badge-var($shadow-blue);
-} 
+// .badge-poster {
+//   @include badge-var($pansy-purple);
+// }
 
-.badge-45-minute-workshop {
-  @include badge-var($shadow-blue);
-}
-
+// demos
 .badge-15-minute-talk-demo {
   @include badge-var($glossy-grape);
 }
 
-.badge-2-minute-lightning-talk-poster {
+// lightening talks
+.badge-2-minute-lightning-talk-poster, 
+.badge-6-2-1-lightning-talk,
+.badge-poster
+{
   @include badge-var($middle-blue-green);
 }
 
-.badge-6-2-1-lightning-talk {
-  @include badge-var($middle-blue-green);
-}
-
-.badge-15-minute-presentation {
+// presentations
+.badge-15-minute-presentation, 
+.badge-15-minute-paper 
+{
   @include badge-var($cedar-chest);
 }
 
-.badge-15-minute-paper {
-  @include badge-var($cedar-chest);
-}
-
-.badge-45-minute-panel {
+// panels
+.badge-45-minute-panel 
+{
   @include badge-var($steel-teal);
 }
 
-.badge-5-minute-lightning-talk {
+// lightning talks
+.badge-5-minute-lightning-talk, 
+.badge-solution-room,
+.badge-5-minute-demonstration-video 
+{
   @include badge-var($mauvelous);
 }
 
-.badge-25-minute-birds-of-a-feather-boaf-session {
+// boaf session
+.badge-25-minute-birds-of-a-feather-boaf-session,
+.badge-45-minute-diy-session,
+.badge-45-minute-working-session,
+.badge-45-minute-working-group-meeting
+{
   @include badge-var($quinacridone-magenta);
 }
 
-.badge-solution-room {
-  @include badge-var($mauvelous);
-}
 
-.badge-10-15-minute-tutorial {
-  @include badge-var($pansy-purple);
-}
+
