@@ -56,10 +56,26 @@ To remove a CSV file (should it have an issue):
 The backend uses SendGrid for password resets, so the first place to check is the spam filter. If the email is just not getting there, the best thing to do is just delete the User (please verify that the sender is using the same email address).
 
 ```
+$ heroku pg:backups:capture
 $ heroku run rails console
 
 User.find_by_email('foo@bar.com').destroy
 ```
+
+> **Note**: If something goes terribly, terribly wrong (like no all the users are deleted), you can restore the database (see https://devcenter.heroku.com/articles/heroku-postgres-backups#restoring-backups). 
+
+The following will tell you information about the backup you just made in the above command (`heroku pg:backups:capture`):
+
+```
+$ heroku pg:backups:info 
+```
+
+To restore this backup (you will need the number of the snapshot, something like `b043`; it will be in green at the top of the output):
+
+```
+$ heroku pg:backups:restore b043 DATABASE_URL
+```
+
 
 # Local Setup
 
