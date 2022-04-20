@@ -5,7 +5,12 @@ require 'roo'
 require 'colorize'
 
 desc 'Convenience wrapper for resetting the database'
-task reset: ['reset:proposals', 'import:conftool']
+task reset: ['reset:proposals', 'import:conftool', 'proposals']
+
+desc 'Report number of Proposals'
+task proposals: :environment do
+  puts "\nProposal Count: #{Proposal.count}".red
+end
 
 def latest_csv
   # get the last updated CSV file from lib/assets
@@ -177,6 +182,7 @@ end
 namespace :reset do
   desc 'Clean out the proposals, leave the people'
   task proposals: :environment do
+    puts "#{Proposal.count} proposals before import\n".red
     Proposal.destroy_all
   end
 
