@@ -35,6 +35,7 @@ Add the data to the project (`git add /lib/assets`), commit the files to the rep
 - [ ] Deploy to heroku (`git push heroku`)
 - [ ] Remove stale data on the production cluster (`heroku run rails reset`)
 - [ ] Validate the data populated properly ([https://voting.diglib.org](https://dlf-voting-app.herokuapp.com/))
+- [ ] Once you go live, **DO NOT RUN `rake reset`** (this will delete all the "votes"). If there are additional items to add, you will need to add a CSV with the additional items and run `rake import:conftool`.
 
 ## If something goes wrong
 
