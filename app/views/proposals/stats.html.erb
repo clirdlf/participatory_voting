@@ -11,6 +11,13 @@
         <%= stats_card('Votes', @proposals.sum(:cached_votes_total)) %>
       </div>
     </div>
+    <div class="row py-4">
+      <% @proposals.group_by(&:contribution_type).each do |c_type, proposal| %>
+        <div class="col-3">
+          <%= stats_card(c_type, proposal.count) %>
+        </div>
+      <% end %>
+    </div>
 
     <div class="col-md-12">
       <% @proposals.group_by(&:contribution_type).each do |c_type, proposals| %>
