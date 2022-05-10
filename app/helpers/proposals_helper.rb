@@ -22,10 +22,10 @@ module ProposalsHelper
   def stats_card(title, text)
     "<div class='card'>
       <div class='card-body'>
-        <h5 class='card-title'>
+        <h5 class='card-title text-muted mb-0'>
           #{title}
         </h5>
-        <p class='card-text'>#{text}</p>
+        <h2 class='font-weight-bold mb-0'>#{text}</h2>
       </div>
     </div>".html_safe
   end
