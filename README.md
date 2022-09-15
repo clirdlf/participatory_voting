@@ -2,6 +2,10 @@
 
 [![Ruby on Rails CI](https://github.com/clirdlf/participatory_voting/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/clirdlf/participatory_voting/actions/workflows/rubyonrails.yml)
 
+# Database Dump
+
+The latest database dump is in `Box/projects/yyyy_voting.dump`
+
 ## ConfTool Notes
 
 To get the download for this, navigate to **Data Import and Export** on the **Overview** screen. Click on **Export Data** and select the following:
