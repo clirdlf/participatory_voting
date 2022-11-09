@@ -4,7 +4,7 @@
 
 # Database Dump
 
-The latest database dump is in `Box/projects/yyyy_voting.dump`
+The latest database dump is in `Box/projects/yyyy_voting.dump`. It's in Box (`projects/yyyy_voting.dump`).
 
 ## ConfTool Notes
 
