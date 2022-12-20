@@ -18,7 +18,7 @@ jobs:
         ruby-version: ['3.1']
     services:
       postgres:
-        image: postgres:11-alpine
+        image: postgres
         ports:
           - "5432:5432"
         env:
@@ -32,6 +32,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       # Add or replace dependency steps here
+      # see https://github.com/ruby/setup-ruby
       - name: Install Ruby and gems
         #uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
         uses: ruby/setup-ruby@v1
