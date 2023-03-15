@@ -12,7 +12,7 @@
     "jquery": "^3.6.0",
     "node-sass": "^7.0",
     "turbolinks": "^5.2.0",
-    "webpack": "^5.73.0"
+    "webpack": "^5.76.0"
   },
   "version": "0.1.0",
   "devDependencies": {
